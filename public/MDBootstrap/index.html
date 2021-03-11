@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Material Design Bootstrap</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <!-- <link href="css/style.css" rel="stylesheet"> -->
+</head>
+
+<body>
+  <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header text-center">
+                <h3>Flooders</h3>
+            </div>
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="#" class="download">Subscribe</a>
+                </li>
+                <li>
+                    <a href="#" class="article">Back to article</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content Holder -->
+        <div id="content">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="navbar-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="card mb-3">
+              <div class="card-header">
+                <div class="float-left">
+                  <h5 class="card-title">Kabupaten Bandung</h5>
+                  <p class="card-subtitle">2 Wilayah</p>
+                </div>
+                <div class="float-right">
+                  <button class="btn btn-sm btn-outline-success">>> Detail</button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <canvas id="kabbandung-line"></canvas>
+                  </div>
+                  <div class="col-md-6">
+                    <canvas id="kabbandung-bar"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <div class="float-left">
+                  <h5 class="card-title">Kota Cimahi</h5>
+                  <p class="card-subtitle">3 Wilayah</p>
+                </div>
+                <div class="float-right">
+                  <button class="btn btn-sm btn-outline-success">>> Detail</button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <canvas id="cimahi-line"></canvas>
+                  </div>
+                  <div class="col-md-6">
+                    <canvas id="cimahi-bar"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+  <!-- Start your project here-->
+  
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <script type="text/javascript">
+  //line
+var ctxL = document.getElementById("cimahi-line").getContext('2d');
+var myLineChart = new Chart(ctxL, {
+  type: 'line',
+  data: {
+    labels: ["07:00", "07:02", "07:04", "07:06", "07:08", "07:10", "07:12"],
+    datasets: [{
+        label: "Cihanjuang",
+        data: [65, 59, 80, 81, 56, 55, 50],
+        backgroundColor: [
+          'rgba(105, 0, 132, .2)',
+        ],
+        borderColor: [
+          'rgba(200, 99, 132, .7)',
+        ],
+        borderWidth: 2
+      },
+      {
+        label: "Pemkot",
+        data: [28, 48, 40, 19, 86, 27, 90],
+        backgroundColor: [
+          'rgba(0, 137, 132, .2)',
+        ],
+        borderColor: [
+          'rgba(0, 10, 130, .7)',
+        ],
+        borderWidth: 2
+      },
+      {
+        label: "Leuwigajah",
+        data: [48, 28, 15, 67, 45, 23, 40],
+        backgroundColor: [
+          'rgba(250, 188, 60, .2)',
+        ],
+        borderColor: [
+          'rgba(255, 119, 61, .7)',
+        ],
+        borderWidth: 2
+      }
+    ]
+  },
+  options: {
+    responsive: true
+  }
+});
+</script>
+<script type="text/javascript">
+  //bar
+var ctxB = document.getElementById("cimahi-bar").getContext('2d');
+var myBarChart = new Chart(ctxB, {
+  type: 'bar',
+  data: {
+    labels: ["Ketinggian Air"],
+    datasets: [{
+      label: 'Cihanjuang',
+      data: [47],
+      backgroundColor: [
+          'rgba(105, 0, 132, .2)',
+        ],
+        borderColor: [
+          'rgba(200, 99, 132, .7)',
+        ],
+        borderWidth: 2
+      },
+      {
+      label: 'Pemkot',
+      data: [24],
+      backgroundColor: [
+          'rgba(0, 137, 132, .2)',
+        ],
+        borderColor: [
+          'rgba(0, 10, 130, .7)',
+        ],
+        borderWidth: 2
+      },
+      {
+      label: 'Leuwigajah',
+      data: [68],
+      backgroundColor: [
+          'rgba(250, 188, 60, .2)',
+        ],
+        borderColor: [
+          'rgba(255, 119, 61, .7)',
+        ],
+        borderWidth: 2
+    }]
+  },
+  options: {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true
+        }
+      }]
+    }
+  }
+});
+</script>
+<script type="text/javascript">
+  //line
+var ctxL = document.getElementById("kabbandung-line").getContext('2d');
+var myLineChart = new Chart(ctxL, {
+  type: 'line',
+  data: {
+    labels: ["07:00", "07:02", "07:04", "07:06", "07:08", "07:10", "07:12"],
+    datasets: [{
+        label: "Bale Endah",
+        data: [28, 48, 40, 19, 86, 27, 90],
+        backgroundColor: [
+          'rgba(0, 137, 132, .2)',
+        ],
+        borderColor: [
+          'rgba(0, 10, 130, .7)',
+        ],
+        borderWidth: 2
+      },
+      {
+        label: "Bojongsoang",
+        data: [48, 28, 15, 67, 45, 23, 40],
+        backgroundColor: [
+          'rgba(250, 188, 60, .2)',
+        ],
+        borderColor: [
+          'rgba(255, 119, 61, .7)',
+        ],
+        borderWidth: 2
+      }
+    ]
+  },
+  options: {
+    responsive: true
+  }
+});
+</script>
+<script type="text/javascript">
+  //bar
+var ctxB = document.getElementById("kabbandung-bar").getContext('2d');
+var myBarChart = new Chart(ctxB, {
+  type: 'bar',
+  data: {
+    labels: ["Ketinggian Air"],
+    datasets: [{
+      label: 'Bale Endah',
+      data: [24],
+      backgroundColor: [
+          'rgba(0, 137, 132, .2)',
+        ],
+        borderColor: [
+          'rgba(0, 10, 130, .7)',
+        ],
+        borderWidth: 2
+      },
+      {
+      label: 'Bojongsoang',
+      data: [68],
+      backgroundColor: [
+          'rgba(250, 188, 60, .2)',
+        ],
+        borderColor: [
+          'rgba(255, 119, 61, .7)',
+        ],
+        borderWidth: 2
+    }]
+  },
+  options: {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true
+        }
+      }]
+    }
+  }
+});
+</script>
+<script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+</script>
+</body>
+
+</html>
